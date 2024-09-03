@@ -10,19 +10,44 @@ This project aims to provide a reliable, scalable API solution that supports ana
 
 The initial dataset focuses on world population growth. Understanding global population growth is crucial for policy making, economic planning, and resource management. By analysing population data, we help governments, organisations, and researchers to draw insights and make data-driven decisions.
 
+Analysts could use the data to explore questions such as:
+1. How has the global population growth rate changed over the past decade?
+2. What are the trends in population growth across different continents and countries?
+3. Which regions are experiencing the highest and lowest growth rates?
+4. How do demographic factors such as age distribution and urbanization rates correlate with population growth patterns?
+5. What are the projected population trends for the next few decades?
+
+## Ethical considerations
+
+- Source datasets (World Bank Group) Terms of Use
+    - https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets
+    - https://creativecommons.org/licenses/by/4.0/
+
+## How to use the API
+
+The API will return JSON data for queries such as:
+- World population growth % by year (for all countries in the dataset)
+- Country population growth % by year
+- Country population growth % by decade
+- Population growth % by continent by year
+
 ---
 
 # Proposed Solution design
 
-![System Design initial sketch](SystemDesignSketch_v2.png)
-
+![System Design initial sketch](SystemDesignSketch_v3.png)
+![alt text](SystemDesignSketch_v2.png)
 # Implementation notes
 
 For this project, we chose the 'Data Engineering' track.
 
 ## Datasets to Be Used
 - World Bank population growth dataset
-    - https://data.worldbank.org/indicator/SP.POP.GROW?end=2023&name_desc=false&start=2023&view=map&year=2023
+    - https://data.worldbank.org/indicator/SP.POP.GROW?end=2023&name_desc=false&start=1961&view=chart&year=2023
+    - Sample of source data:
+        - ![A sample of the source data](SampleSourceData.png)
+    - Metadata:
+        - ![Metadata about the population growth source data](Metadata_PopulationGrowth.png)
 
 ## Rough Breakdown of Tasks
 1. Extract data (World Bank dataset)
