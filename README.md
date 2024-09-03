@@ -36,7 +36,7 @@ The API will return JSON data for queries such as:
 # Proposed Solution design
 
 ![System Design initial sketch](SystemDesignSketch_v3.png)
-![alt text](SystemDesignSketch_v2.png)
+
 # Implementation notes
 
 For this project, we chose the 'Data Engineering' track.
