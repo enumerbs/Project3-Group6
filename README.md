@@ -1,6 +1,7 @@
 # Project Title: Global data analysis API
 Data Analytics Boot Camp - Project 3
 
+Slides: https://docs.google.com/presentation/d/1QuK3O8G-P0fPEqNZbSi0aKoBhZVnk_J-3CgCmaurGuE/edit?usp=sharing
 
 ## Team members (Group 6)
 Kenneth Le, Kurai Monica Matiki, Eric Tran, Greg Presneill
