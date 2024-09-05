@@ -1,6 +1,7 @@
 # Project Title: Global data analysis API
 Data Analytics Boot Camp - Project 3
 
+Slides: https://docs.google.com/presentation/d/1QuK3O8G-P0fPEqNZbSi0aKoBhZVnk_J-3CgCmaurGuE/edit?usp=sharing
 
 ## Team members (Group 6)
 Kenneth Le, Kurai Monica Matiki, Eric Tran, Greg Presneill
@@ -77,3 +78,6 @@ needed, add derived fields like growth percentages.
 3. Data Load – insert the transformed data into a SQL database.
 Data Display
 Flask API – develop a Flask API to serve the data in JSON format.
+
+## Ethical Consideration 
+The project utilizes publicly available, open-source datasets from trusted organizations such as the World Bank. We carefully verify the accuracy and reliability of these datasets before incorporating them into our system.
