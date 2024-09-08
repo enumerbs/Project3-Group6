@@ -81,3 +81,11 @@ Flask API – develop a Flask API to serve the data in JSON format.
 
 ## Ethical Consideration 
 The project utilizes publicly available, open-source datasets from trusted organizations such as the World Bank. We carefully verify the accuracy and reliability of these datasets before incorporating them into our system.
+
+1. Copyright and Fair Use: The dataset has been reviewed for copyright protections, and its use complies with the applicable fair use or licensing agreements.
+
+2. Intended Use Documentation: The intended usage of the dataset, both present and future, has been documented to ensure compliance with the terms of use.
+
+3. Data Collection Verification: The dataset's collection process has been investigated to confirm that it was sourced from authorized and legitimate providers.
+
+
