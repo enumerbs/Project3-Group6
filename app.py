@@ -54,8 +54,15 @@ def welcome():
 
         f"<p><b>/api/v1.0/population-growth-all-countries-all-years</b></br>\
         A cross-tabulation of population growth percentage by country, by year for all available years</p>"
+
+        f"<p><b>/api/v1.0/population-growth-for-country-all-years-available/&lt;country_code&gt;</b></br>\
+        Population growth percentage by country, by year for all years available for that country</br>\
+        Example:</br>\
+        /api/v1.0/population-growth-for-country-all-years-available/AUS</p>"
     )
 
+#------------------------------------------------
+# Reference Data endpoints
 #------------------------------------------------
 
 @app.route("/api/v1.0/country-codes")
@@ -94,6 +101,8 @@ def continents_with_countries():
     return result_df.to_dict(orient="records")
 
 #------------------------------------------------
+# Population Growth dataset endpoints
+#------------------------------------------------
 
 @app.route("/api/v1.0/population-growth-all-countries-all-years")
 def population_growth_all():
@@ -102,6 +111,24 @@ def population_growth_all():
     # Query all population growth data
     session = Session(bind=engine)
     population_growth_records = session.query(PopulationGrowth).all()
+    session.close()
+
+    # Dynamically convert query results into an equivalent dictionary
+    # Reference: https://www.slingacademy.com/article/sqlalchemy-convert-query-results-into-dictionary/
+    result_dict = [{column.name: getattr(row, column.name) for column in PopulationGrowth.__table__.columns} for row in population_growth_records]
+
+     # Return result in JSON format
+    return result_dict
+
+#------------------------------------------------
+
+@app.route("/api/v1.0/population-growth-for-country-all-years-available/<country_code>")
+def population_growth_for_country(country_code):
+    """Return population growth percentage for the specified country, by year for all years available for that country"""
+
+    # Query all population growth data, filtering by the specified country code
+    session = Session(bind=engine)
+    population_growth_records = session.query(PopulationGrowth).filter(PopulationGrowth.CountryCode == country_code).all()
     session.close()
 
     # Dynamically convert query results into an equivalent dictionary
