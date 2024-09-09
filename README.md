@@ -23,7 +23,13 @@ Analysts could use the data to explore questions such as:
 - Source datasets (World Bank Group) Terms of Use
     - https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets
     - https://creativecommons.org/licenses/by/4.0/
-
+The project utilizes publicly available, open-source datasets from trusted organizations such as the World Bank. Before incorporating any data into our system, we carefully verify its accuracy, reliability, and alignment with our intended goals, ensuring ethical use of the information.
+Copyright and Fair Use:
+The datasets have been reviewed to ensure compliance with all relevant copyright protections, specifically adhering to the World Bank’s Creative Commons Attribution 4.0 International (CC BY 4.0) license. This allows the use of the data as long as proper attribution is provided to the World Bank. By following these licensing terms, we maintain respect for the intellectual property rights of data providers and ensure legal use of the data.
+Intended Use Documentation:
+The intended use of these datasets, both now and in the future, has been clearly documented and aligned with the terms of use provided by the data sources. Our application uses the data for educational and analytical purposes, providing insights into global trends such as population growth, without commercial exploitation. We maintain transparency by documenting how the data is used, shared, and processed, ensuring ongoing compliance with all usage terms.
+Data Collection Verification:
+We have thoroughly examined the collection process of the datasets to confirm that they were sourced from authorized, legitimate providers. For example, the World Bank dataset is publicly available and compiled from reputable global sources, ensuring ethical sourcing of the data. This investigation ensures that the data is free from ethical concerns related to improper access or unauthorized use.
 ## How to use the API
 
 The API will return JSON data for queries such as:
@@ -79,13 +85,6 @@ needed, add derived fields like growth percentages.
 Data Display
 Flask API – develop a Flask API to serve the data in JSON format.
 
-## Ethical Consideration 
-The project utilizes publicly available, open-source datasets from trusted organizations such as the World Bank. We carefully verify the accuracy and reliability of these datasets before incorporating them into our system.
 
-1. Copyright and Fair Use: The dataset has been reviewed for copyright protections, and its use complies with the applicable fair use or licensing agreements.
-
-2. Intended Use Documentation: The intended usage of the dataset, both present and future, has been documented to ensure compliance with the terms of use.
-
-3. Data Collection Verification: The dataset's collection process has been investigated to confirm that it was sourced from authorized and legitimate providers.
 
 
