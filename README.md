@@ -73,6 +73,14 @@ For this project, we chose the 'Data Engineering' track.
 ## Other details
 Database choice: relational database (SQL) as we are dealing with tabular data.
 
+## Why Relational Database
+1. Structured Data:** Ideal for structured data with a well-defined schema, such as country, year, population count, and other demographic variables.
+2. ACID Compliance:** Provides strong transactional integrity with Atomicity, Consistency, Isolation, and Durability, which is critical for ensuring accurate population data.
+3. Joins:** Efficiently handles complex queries involving joins, allowing easy integration and analysis of different datasets (e.g., population vs. economic data).
+4. Data Integrity:** Robust mechanisms to enforce data integrity through constraints (foreign keys, unique constraints).
+5. Standard Query Language (SQL):** Universal and widely understood query language, facilitating analytics, reporting, and integration with various tools.
+
+
 Collections: at least two tables are needed
 1. Countries: Contains information on countries/continents
 2. Population data: Contains historical and current population statistics.
