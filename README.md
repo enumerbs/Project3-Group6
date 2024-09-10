@@ -52,6 +52,10 @@ The API will return JSON data for queries such as:
 
 For this project, we chose the 'Data Engineering' track.
 
+The additional library used was 'Pandera'
+To install: pip install pandera
+to import: import pandera as pa
+
 ## Datasets to Be Used
 - World Bank population growth dataset
     - https://data.worldbank.org/indicator/SP.POP.GROW?end=2023&name_desc=false&start=1961&view=chart&year=2023
