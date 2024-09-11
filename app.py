@@ -50,15 +50,18 @@ def welcome():
         f"<p><b>/api/v1.0/continents-with-countries</b></br>\
         All continents and countries in them, sorted alphabetically by the respective names</p>"
 
-        f"<h3><u>Population Growth Data</u></h3>"
+        f"<h3><u>Population Growth Percentage Data</u></h3>"
 
-        f"<p><b>/api/v1.0/population-growth-all-countries-all-years</b></br>\
+        f"<p><b>/api/v1.0/population-growth-percentage-years-available</b></br>\
+        A list of years for which population growth percentage data is available</p>"
+
+        f"<p><b>/api/v1.0/population-growth-percentage-all-countries-all-years</b></br>\
         A cross-tabulation of population growth percentage by country, by year for all available years</p>"
 
-        f"<p><b>/api/v1.0/population-growth-for-country-all-years-available/&lt;country_code&gt;</b></br>\
+        f"<p><b>/api/v1.0/population-growth-percentage-for-country-all-years-available/&lt;country_code&gt;</b></br>\
         Population growth percentage by country, by year for all years available for that country</br>\
         Example:</br>\
-        /api/v1.0/population-growth-for-country-all-years-available/AUS</p>"
+        /api/v1.0/population-growth-percentage-for-country-all-years-available/AUS</p>"
 
         f"<p><b>/api/v1.0/population-growth-percentage-summary-by-continent/&lt;year&gt;</b></br>\
         Return MIN, AVG, and MAX population growth by continent for the specified year</p>"
@@ -107,11 +110,21 @@ def continents_with_countries():
 # Population Growth dataset endpoints
 #------------------------------------------------
 
-@app.route("/api/v1.0/population-growth-all-countries-all-years")
-def population_growth_all():
+@app.route("/api/v1.0/population-growth-percentage-years-available")
+def population_growth_percentage_years_available():
+    """Return a list of years for which population growth percentage data is available"""
+    available_years = [column.name for column in PopulationGrowth.__table__.columns if column.name.isnumeric()]
+
+    # Return result in JSON format
+    return jsonify(available_years)
+
+#------------------------------------------------
+
+@app.route("/api/v1.0/population-growth-percentage-all-countries-all-years")
+def population_growth_percentage_all():
     """Return a cross-tabulation of population growth percentage by country, by year for all available years"""
 
-    # Query all population growth data
+    # Query all population growth percentage data
     session = Session(bind=engine)
     population_growth_records = session.query(PopulationGrowth).all()
     session.close()
@@ -125,8 +138,8 @@ def population_growth_all():
 
 #------------------------------------------------
 
-@app.route("/api/v1.0/population-growth-for-country-all-years-available/<country_code>")
-def population_growth_for_country(country_code):
+@app.route("/api/v1.0/population-growth-percentage-for-country-all-years-available/<country_code>")
+def population_growth_percentage_for_country(country_code):
     """Return population growth percentage for the specified country, by year for all years available for that country"""
 
     # Query all population growth data, filtering by the specified country code
@@ -145,7 +158,7 @@ def population_growth_for_country(country_code):
 
 @app.route("/api/v1.0/population-growth-percentage-summary-by-continent/<year>")
 def min_avg_max_population_growth_percentage_by_contient_for_specified_year(year):
-    """Return MIN, AVG, and MAX population growth by continent for the specified year"""
+    """Return MIN, AVG, and MAX population growth percentage by continent for the specified year"""
 
     available_years = [column.name for column in PopulationGrowth.__table__.columns if column.name.isnumeric()]
     if year not in available_years:
