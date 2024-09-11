@@ -6,7 +6,7 @@ import json
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, text
 
 from flask import Flask, jsonify, request
 
@@ -59,6 +59,9 @@ def welcome():
         Population growth percentage by country, by year for all years available for that country</br>\
         Example:</br>\
         /api/v1.0/population-growth-for-country-all-years-available/AUS</p>"
+
+        f"<p><b>/api/v1.0/population-growth-percentage-summary-by-continent/&lt;year&gt;</b></br>\
+        Return MIN, AVG, and MAX population growth by continent for the specified year</p>"
     )
 
 #------------------------------------------------
@@ -137,6 +140,32 @@ def population_growth_for_country(country_code):
 
      # Return result in JSON format
     return result_dict
+
+#------------------------------------------------
+
+@app.route("/api/v1.0/population-growth-percentage-summary-by-continent/<year>")
+def min_avg_max_population_growth_percentage_by_contient_for_specified_year(year):
+    """Return MIN, AVG, and MAX population growth by continent for the specified year"""
+
+    available_years = [column.name for column in PopulationGrowth.__table__.columns if column.name.isnumeric()]
+    if year not in available_years:
+        # Data for requested year not available: return error description to the caller; set HTTP status code 400 'Bad request'
+        return {"error": f"No data available for the specified year ({year})"}, 400
+    else:
+        session = Session(bind=engine)
+        #Creating the SQL statementby using the text()
+        stmt=text("SELECT Continent, MIN([" + year + "]), AVG([" + year + "]), MAX([" + year + "]) FROM PopulationGrowth as pg "\
+                "inner join CountryContinent as cc on cc.CountryCode = pg.CountryCode "\
+                "where [" + year + "] <> '(Not Specified)' "\
+                "group by Continent")
+        result_records=session.execute(stmt)
+        session.close()
+
+        # Convert tuples to dataframe taking on column names from the query
+        result_df = pd.DataFrame(result_records)
+
+        # Convert to a dictionary and return result
+        return result_df.to_dict(orient="records")
 
 #################################################
 # Support for invocation from the command line
