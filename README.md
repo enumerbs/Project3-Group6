@@ -34,13 +34,15 @@ The intended use of these datasets, both now and in the future, has been clearly
 
 Data Collection Verification:
 We have thoroughly examined the collection process of the datasets to confirm that they were sourced from authorized, legitimate providers. For example, the World Bank dataset is publicly available and compiled from reputable global sources, ensuring ethical sourcing of the data. This investigation ensures that the data is free from ethical concerns related to improper access or unauthorized use.
+
 ## How to use the API
 
 The API will return JSON data for queries such as:
-- World population growth % by year (for all countries in the dataset)
-- Country population growth % by year
-- Country population growth % by decade
-- Population growth % by continent by year
+- List the Countries and Years for which data is available
+- Population growth % for all countries by year
+- Individual country population growth % by year
+- Minimum, Average, and Maximum Population growth % by continent for a specified year
+
 
 ---
 
@@ -52,9 +54,9 @@ The API will return JSON data for queries such as:
 
 For this project, we chose the 'Data Engineering' track.
 
-The additional library used was 'Pandera'
-To install: pip install pandera
-to import: import pandera as pa
+The additional library used was 'Pandera':
+- To install: pip install pandera
+- To import: import pandera as pa
 
 ## Datasets to Be Used
 - World Bank population growth dataset
@@ -74,10 +76,18 @@ to import: import pandera as pa
 1. Develop queries to allow end users to extract data through the API
 1. Summary for presentation.
 
-## Other details
-Database choice: relational database (SQL) as we are dealing with tabular data.
+## Design / Technology Choices
 
-## Why Relational Database
+Database type choice: relational database
+- as we are dealing with tabular (structured) data
+- also known as 'SQL', database.<br>
+
+Database product choice: SQLite ( https://www.sqlite.org/ )
+- SQLite supports most of the standard SQL language
+- SQLite databases are relatively compact files, which makes them suitable for this project, as they are relatively easy to construct and backup.
+- SQLite databases are also compatible with Flask (our API technology choice)
+
+### Why Relational Database
 1. Structured Data:** Ideal for structured data with a well-defined schema, such as country, year, population count, and other demographic variables.
 2. ACID Compliance:** Provides strong transactional integrity with Atomicity, Consistency, Isolation, and Durability, which is critical for ensuring accurate population data.
 3. Joins:** Efficiently handles complex queries involving joins, allowing easy integration and analysis of different datasets (e.g., population vs. economic data).
@@ -100,7 +110,3 @@ needed, add derived fields like growth percentages.
 3. Data Load – insert the transformed data into a SQL database.
 Data Display
 Flask API – develop a Flask API to serve the data in JSON format.
-
-
-
-
