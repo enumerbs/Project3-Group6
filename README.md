@@ -10,6 +10,21 @@ As well as the source code and database, this repository includes:
 - final presentation slides: **slides/PresentationSlides_GlobalDataAnalysisAPI_Group6.pdf**
 - a source code example of 'how to use' this project's API for your own further data analysis: **HowToUse_GlobalDataAnalysisAPI_SampleCode.ipynb**
 
+## Steps to Reproduce / How to Run the API
+
+1. Clone this repository.
+1. From the top-level repository folder, at a suitable command line (e.g. Bash) invoke `python app.py` to run this project's Flask-based API as a local web server.
+1. Note the command line output, which will include the URL for the API (by default this will be http://127.0.0.1:5000).
+1. Enter that URL in your browser to see the API landing page.
+1. Append one of the API endpoints listed on the landing page to the URL in order to retrieve data from the API (e.g. http://127.0.0.1:5000/api/v1.0/country-codes)
+1. (Optional) At a second command line, invoke 'jupyter notebook' and open `HowToUse_GlobalDataAnalysisAPI_SampleCode.ipynb` from the top-level repository folder. Update the `server` URL if required (default is again http://127.0.0.1:5000). You can then view the sample code in the Notebook, and run that to query the running Flask-based API.
+
+Assumptions:
+- your command-line environment is based on Anaconda or similar, so includes support for the Python environment, and Python libraries used in this project including Flask and Pandera.
+
+Note:
+- The project's SQLite database is ready to be queried; it has been saved with the results of the project's ETL phase. In other words, it is not necessary to run the ETL scripts to invoke the API. Having said that, there is additional details below on the ETL phases including steps to recreate the database.
+
 ## Project Overview and Rationale
 This project aims to provide a reliable, scalable API solution that supports analysts investigating global data statistics and trends over time.
 
