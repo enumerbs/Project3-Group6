@@ -50,7 +50,7 @@ The API will return JSON data for queries such as:
 
 The following diagram shows the data flow and processing phases leading to the final API.
 
-![System Design high-level diagram](SystemDesignSketch_v4.png)
+<img src="img/SystemDesignSketch_v4.png" alt="System Design high-level diagram">
 
 # Implementation notes
 
@@ -64,9 +64,9 @@ The additional library used was 'Pandera':
 - World Bank population growth dataset
     - https://data.worldbank.org/indicator/SP.POP.GROW?end=2023&name_desc=false&start=1961&view=chart&year=2023
     - Sample of source data:
-        - ![A sample of the source data](SampleSourceData.png)
+        <img src="img/SampleSourceData.png" alt="A sample of the source data">
     - Metadata:
-        - ![Metadata about the population growth source data](Metadata_PopulationGrowth.png)
+        <img src="img/Metadata_PopulationGrowth.png" alt="Metadata about the population growth source data">
 
 ## Rough Breakdown of Tasks
 1. Extract data (World Bank dataset)
