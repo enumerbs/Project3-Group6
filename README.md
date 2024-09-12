@@ -21,7 +21,7 @@ As well as the source code and database, this repository includes:
 1. (Optional) At a second command line, invoke 'jupyter notebook' and open `HowToUse_GlobalDataAnalysisAPI_SampleCode.ipynb` from the top-level repository folder. Update the `server` URL if required (default is again http://127.0.0.1:5000). You can then view the sample code in the Notebook, and run that to query the running Flask-based API.
 
 Assumptions:
-- your command-line environment is based on Anaconda or similar, so includes support for the Python environment, and Python libraries used in this project including Flask and Pandera. Installation instructions for Pandera are given below
+- your command-line environment is based on Anaconda or similar, so includes support for the Python environment, and Python libraries used in this project including Flask and Pandera. Installation instructions for Pandera are given below.
 
 Other Notes:
 - The project's SQLite database is ready to be queried; it has been saved with the results of the project's ETL phase. In other words, it is not necessary to run the ETL scripts to invoke the API. Having said that, there is additional details below on the ETL phases including steps to recreate the database.
@@ -72,7 +72,7 @@ The API will return JSON data for queries such as:
 
 The following diagram shows the data flow and processing phases leading to the final API.
 
-<img src="img/SystemDesignSketch_v4.png" alt="System Design high-level diagram">
+<img src="img/SystemDesignSketch_v4.png" alt="System Design high-level diagram"><br>
 
 # Implementation notes
 
@@ -104,7 +104,7 @@ The additional library used was 'Pandera':
 
 Database type choice: relational database
 - as we are dealing with tabular (structured) data
-- also known as 'SQL', database.<br>
+- also known as 'SQL' database.<br>
 
 Database product choice: SQLite ( https://www.sqlite.org/ )
 - SQLite supports most of the standard SQL language
