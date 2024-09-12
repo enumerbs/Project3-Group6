@@ -17,12 +17,13 @@ As well as the source code and database, this repository includes:
 1. Note the command line output, which will include the URL for the API (by default this will be http://127.0.0.1:5000).
 1. Enter that URL in your browser to see the API landing page.
 1. Append one of the API endpoints listed on the landing page to the URL in order to retrieve data from the API (e.g. http://127.0.0.1:5000/api/v1.0/country-codes)
+1. Some of the API endpoints require Country Code or Year values to be supplied as part of the URL in order to retrieve the relevant data. You can call other API endpoints to list the available Country Code or Year values, and then choose from those.
 1. (Optional) At a second command line, invoke 'jupyter notebook' and open `HowToUse_GlobalDataAnalysisAPI_SampleCode.ipynb` from the top-level repository folder. Update the `server` URL if required (default is again http://127.0.0.1:5000). You can then view the sample code in the Notebook, and run that to query the running Flask-based API.
 
 Assumptions:
-- your command-line environment is based on Anaconda or similar, so includes support for the Python environment, and Python libraries used in this project including Flask and Pandera.
+- your command-line environment is based on Anaconda or similar, so includes support for the Python environment, and Python libraries used in this project including Flask and Pandera. Installation instructions for Pandera are given below
 
-Note:
+Other Notes:
 - The project's SQLite database is ready to be queried; it has been saved with the results of the project's ETL phase. In other words, it is not necessary to run the ETL scripts to invoke the API. Having said that, there is additional details below on the ETL phases including steps to recreate the database.
 
 ## Project Overview and Rationale
@@ -59,18 +60,15 @@ The intended use of these datasets, both now and in the future, has been clearly
 Data Collection Verification:
 We have thoroughly examined the collection process of the datasets to confirm that they were sourced from authorized, legitimate providers. For example, the World Bank dataset is publicly available and compiled from reputable global sources, ensuring ethical sourcing of the data. This investigation ensures that the data is free from ethical concerns related to improper access or unauthorized use.
 
-## How to use the API
+---
+
+# High-level Solution Design
 
 The API will return JSON data for queries such as:
 - List the Countries and Years for which data is available
 - Population growth % for all countries by year
 - Individual country population growth % by year
-- Minimum, Average, and Maximum Population growth % by continent for a specified year
-
-
----
-
-# High-level Solution Design
+- Minimum, Average, and Maximum Population growth % by continent for a specified year.
 
 The following diagram shows the data flow and processing phases leading to the final API.
 
@@ -81,8 +79,8 @@ The following diagram shows the data flow and processing phases leading to the f
 For this project, we chose the 'Data Engineering' track.
 
 The additional library used was 'Pandera':
-- To install: pip install pandera
-- To import: import pandera as pa
+- To install: `pip install pandera`
+- To import: `import pandera as pa`
 
 ## Datasets to Be Used
 - World Bank population growth dataset
