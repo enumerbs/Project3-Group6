@@ -1,10 +1,14 @@
 # Project Title: Global data analysis API
 Data Analytics Boot Camp - Project 3
 
-Slides: https://docs.google.com/presentation/d/1QuK3O8G-P0fPEqNZbSi0aKoBhZVnk_J-3CgCmaurGuE/edit?usp=sharing
-
 ## Team members (Group 6)
 Kenneth Le, Kurai Monica Matiki, Eric Tran, Greg Presneill
+
+## Results
+
+As well as the source code and database, this repository includes:
+- final presentation slides: **slides/PresentationSlides_GlobalDataAnalysisAPI_Group6.pdf**
+- a source code example of 'how to use' this project's API for your own further data analysis: **HowToUse_GlobalDataAnalysisAPI_SampleCode.ipynb**
 
 ## Project Overview and Rationale
 This project aims to provide a reliable, scalable API solution that supports analysts investigating global data statistics and trends over time.
