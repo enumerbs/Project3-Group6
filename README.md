@@ -46,9 +46,11 @@ The API will return JSON data for queries such as:
 
 ---
 
-# Proposed Solution design
+# High-level Solution Design
 
-![System Design initial sketch](SystemDesignSketch_v3.png)
+The following diagram shows the data flow and processing phases leading to the final API.
+
+![System Design high-level diagram](SystemDesignSketch_v4.png)
 
 # Implementation notes
 
