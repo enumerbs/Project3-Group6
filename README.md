@@ -102,9 +102,24 @@ The additional library used was 'Pandera':
 
 ## Design / Technology Choices
 
+API technology choice: Flask
+- A Flask-based API provides a way to serve data from our project database in JSON format via a web server.
+- Using Flask allows us to define functions to handle the API endpoint requests, query the project database and potentially summarise or otherwise transform the data, before returning it as a result of a web (HTTP) request.
+- Presenting JSON data to the API's end users allows flexibility in the choice of client-side technology (as JSON is widely support by JavaScript, Python, and other languages).
+
+ETL technology choices: Jupyter Notebook (Python); Pandera library
+- Pandera (https://www.union.ai/pandera) allowed us to define a desired data schema, and validate datasets in our ETL pipeline against that schema.
+- Our example use of Pandera for that purpose can be found in the following Jupyter Notebook: `etl/etl_part3.ipynb`
+
 Database type choice: relational database
 - as we are dealing with tabular (structured) data
 - also known as 'SQL' database.<br>
+
+Database schema design choice: selection of 'country' name field
+- both the World Bank dataset and the ISO 3166 Country Codes dataset defined the Country names
+- arguably, the ISO 3166 country names were 'more official' in that they come from that standard
+- however, for simplicity, we chose to expose only the World Bank dataset country names via our API.
+- in doing so, we avoided possible confusion between country name variations, such as whether or not various republics were referred to with the word 'Republic' in their name, or not.
 
 Database product choice: SQLite ( https://www.sqlite.org/ )
 - SQLite supports most of the standard SQL language
@@ -125,6 +140,7 @@ Database tables: this design implements the following tables
 Number of records: The database will have at least 100 country / population growth records.
 
 ## ETL Workflow
+
 ETL Overview
 1. Data extraction – extract raw data from publicly available databases
 such as the World Bank datasets available as CSV files or via APIs.
@@ -134,3 +150,39 @@ needed, add derived fields like growth percentages.
 3. Data Load – insert the transformed data into a SQL database.
 Data Display
 Flask API – develop a Flask API to serve the data in JSON format.
+
+ETL Details
+
+- Data flows along the following repository subfolders of the `etl` folder, in order:
+    1. source_data
+    1. data
+    1. data_for_db
+- The `source_data` subfolder contains the original source data in CSV file format.
+- The `data` subfolder contains intermediate results (including merged and/or cleansed datasets).
+- The `data_for_db` subfolder contains the final cleansed data, aligned to the database schema and ready to be used to populate the corresponding database tables.
+- To run the ETL pipeline, open and run the following Jupyter Notebooks in order:
+    - `etl_part1.ipynb`
+    - `etl_part2.ipynb`
+    - `etl_part3.ipynb`
+    - `etl_part4.ipynb`
+    - `etl_part5.ipynb`
+
+## Database creation
+
+This project's Flask API expects a SQLite database named `DataApi.db` to be present in the `db` repository folder.
+
+Prerequisites:
+- Download and extract the following from https://www.sqlite.org/download.html:
+    - SQLite version 3.46.1
+    - SQLite tools (the corresponding bundle of command-line tools for managing SQLite database files, including the command-line shell program)
+
+- Add the folder where SQLite and SQLite tools were extracted to your PATH environment variable.
+- Re-start your environment if necessary to pick up the PATH change.
+
+Then, to recreate the database file, use the following steps:
+1. Ensure all the Jupyter Notebooks for ETL phases 1-5 have been run (see section above).
+2. Follow the instructions in the `db\schema\sqlite_Project_SQL_Queries.txt` file.
+
+
+
+---
