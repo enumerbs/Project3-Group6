@@ -167,6 +167,12 @@ ETL Details
     - `etl_part4.ipynb`
     - `etl_part5.ipynb`
 
+## Database design
+
+QuickDBD (https://www.quickdatabasediagrams.com/) was used to create the database design, and generate the SQL code for creating the tables.
+
+Refer to the various files in the `db\schema` subfolder for details, including database Entity-Relationship diagrams as PNG files.
+
 ## Database creation
 
 This project's Flask API expects a SQLite database named `DataApi.db` to be present in the `db` repository folder.
