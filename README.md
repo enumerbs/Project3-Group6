@@ -24,6 +24,11 @@ Analysts could use the data to explore questions such as:
 
 ## Ethical considerations
 
+- Source datasets attribution
+    - The primary dataset used was made available by the World Bank Group via the World Bank Open Data site (https://data.worldbank.org/). The dataset's data values were not changed, other than blank values were replaced by '(Not Specified)' indicators in this project's database and output via our API. This change was made to indicate to end users of our API that those data items were not present in the original dataset.
+    - The secondary dataset of 'countries by continent' used the downloadable list from the World Population Revew site (https://worldpopulationreview.com/country-rankings/list-of-countries-by-continent) as a basis.
+    - The above two datasets were cross-checked and combined using the official list of ISO 3166 Country Codes available from the ISO's Online Browsing Platform (go to https://www.iso.org/obp/ui/#search, click the 'Country codes' radio button, and click Search). ISO allows free-of-charge use of its country, currency and language codes from ISO 3166, ISO 4217 and ISO 639, respectively
+
 - Source datasets (World Bank Group) Terms of Use
     - https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets
     - https://creativecommons.org/licenses/by/4.0/
